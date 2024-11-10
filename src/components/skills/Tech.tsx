@@ -1,7 +1,6 @@
 import React from "react";
 import Reactsvg from "../svgs/Reactsvg";
-import Htmlsvg from "../svgs/Htmlsvg";
-import Csssvg from "../svgs/Csssvg";
+import Nextjs from "../svgs/Nextjssvg";
 import Jssvg from "../svgs/Jssvg";
 import Reduxsvg from "../svgs/Reduxsvg";
 import Nodejssvg from "../svgs/Nodejssvg";
@@ -14,12 +13,13 @@ import { motion } from "framer-motion";
 import Graphql from "components/svgs/Graphql";
 import Spring from "components/svgs/Spring";
 import { SiSpringboot } from "react-icons/si";
+import Tailwind from "components/svgs/Tailwind";
 
 const Tech: React.FC = () => {
   return (
     <div
       // className="  dark:text-white  absolute top-[87rem] md:top-[74rem] left-10 md:left-[5.5rem] md:mt-20 w-[85%] m-auto flex flex-col"
-      className=" dark:text-white mt-16 md:mt-20 lg:mt-32 "
+      className=" dark:text-white mt-10 md:mt-12 lg:mt-16 "
     >
       <motion.h1
         whileInView={{ opacity: 1, x: 0 }}
@@ -67,24 +67,9 @@ const Tech: React.FC = () => {
               }}
               className=" w-[3.5rem] h-[3.5rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
             >
-              <Htmlsvg />
+              <Tailwind />
             </motion.div>
-            {/* css */}
-            <motion.div
-              initial={{ y: -4 }}
-              animate={{
-                y: [4, -4],
-                transition: {
-                  duration: 3.54,
-                  ease: "linear",
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                },
-              }}
-              className=" w-[3.5rem] h-[3.5rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
-            >
-              <Csssvg />
-            </motion.div>
+
             {/* js */}
             <motion.div
               initial={{ y: -4 }}
@@ -132,6 +117,21 @@ const Tech: React.FC = () => {
               className=" w-[3.5rem] h-[3.5rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
             >
               <Reactsvg />
+            </motion.div>
+            <motion.div
+              initial={{ y: -4 }}
+              animate={{
+                y: [4, -4],
+                transition: {
+                  duration: 3.54,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                },
+              }}
+              className=" w-[3.5rem] h-[3.5rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
+            >
+              <Nextjs />
             </motion.div>
             {/* redux */}
             <motion.div

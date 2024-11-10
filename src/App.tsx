@@ -15,6 +15,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import Allblogs from "components/blog/Allblogs";
 import Addblog from "components/blog/Addblog";
 import Blog from "components/blog/Blog";
+import Experience from "components/experience/Experience";
 
 const Projects = React.lazy(() => import("./components/project/Projects"));
 const Projectssmall = React.lazy(
@@ -44,9 +45,13 @@ function App({ setisDark, isDark }) {
         <Navigation isDark={isDark} />
         <Logo />
         <Social />
+
         <Photo isDark={isDark} />
         <TextPlace />
         <About isDark={isDark} />
+        <section id="#experience">
+          <Experience />
+        </section>
         <section id="skills">
           <Tech />
         </section>

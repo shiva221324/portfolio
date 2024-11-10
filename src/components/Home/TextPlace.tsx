@@ -57,7 +57,7 @@ const TextPlace: React.FC = () => {
           transition={{ duration: 0.8, delay: 11 * 0.1 }} // Delay to match the appearance of the full word
           className="text-[2.6rem] md:text-6xl lg:text-8xl inline-block opacity-90 dark:opacity-85 "
         >
-          {splitTextWithSpace(isFullStack ? "MERN STACK" : "SPRING BOOT")}
+          {splitTextWithSpace(isFullStack ? "MERN STACK" : "BUG BOUNTY")}
         </motion.div>
         <motion.div
           key={isFullStack ? "FULL STACK-box" : "MOBILE APP-box"}

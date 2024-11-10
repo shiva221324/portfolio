@@ -9,6 +9,9 @@
     @apply dark:text-black hover:text-black hover:bg-[#a2f7f7];
   }
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: Satoshi;

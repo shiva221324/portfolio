@@ -87,6 +87,37 @@ const Navigation: React.FC = ({ isDark }) => {
 
           <div
             className={`flex items-center justify-center gap-1 relative ${
+              activeNav === 4 ? "font-bold" : "text-black dark:text-white"
+            }`}
+            onMouseEnter={() => setHoverIndex(4)}
+            onMouseLeave={() => setHoverIndex(null)}
+            onClick={() => {
+              handleClick(4);
+            }}
+          >
+            {activeNav === 4 && (
+              <span
+                style={{ boxShadow: "0 0 0.25em #42fcfc" }}
+                className="inline-block w-[0.34rem] h-[0.34rem] rounded-full bg-[#42fcfc]"
+              ></span>
+            )}
+            <Link onClick={() => handleClick(4)} to={`#experience`} smooth>
+              Experience
+            </Link>
+
+            <motion.div
+              initial={{ width: 0 }}
+              animate={hoverIndex === 4 ? { width: "100%" } : { width: 0 }}
+              transition={{
+                duration: 0.4,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-0 h-[0.13rem] lg:h-[0.17rem] bg-[#42fcfc]"
+              style={{ left: 0 }}
+            ></motion.div>
+          </div>
+          <div
+            className={`flex items-center justify-center gap-1 relative ${
               activeNav === 2 ? "font-bold" : "text-black dark:text-white"
             }`}
             onMouseEnter={() => setHoverIndex(2)}
@@ -140,38 +171,6 @@ const Navigation: React.FC = ({ isDark }) => {
             <motion.div
               initial={{ width: 0 }}
               animate={hoverIndex === 3 ? { width: "100%" } : { width: 0 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-0 h-[0.13rem] lg:h-[0.17rem] bg-[#42fcfc]"
-              style={{ left: 0 }}
-            ></motion.div>
-          </div>
-
-          <div
-            className={`flex items-center justify-center gap-1 relative ${
-              activeNav === 4 ? "font-bold" : "text-black dark:text-white"
-            }`}
-            onMouseEnter={() => setHoverIndex(4)}
-            onMouseLeave={() => setHoverIndex(null)}
-            onClick={() => {
-              handleClick(4);
-            }}
-          >
-            {activeNav === 4 && (
-              <span
-                style={{ boxShadow: "0 0 0.25em #42fcfc" }}
-                className="inline-block w-[0.34rem] h-[0.34rem] rounded-full bg-[#42fcfc]"
-              ></span>
-            )}
-            <Link onClick={() => handleClick(4)} to={`#contact`} smooth>
-              Contact
-            </Link>
-
-            <motion.div
-              initial={{ width: 0 }}
-              animate={hoverIndex === 4 ? { width: "100%" } : { width: 0 }}
               transition={{
                 duration: 0.4,
                 ease: "easeInOut",
