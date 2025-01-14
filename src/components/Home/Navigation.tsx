@@ -87,7 +87,7 @@ const Navigation = ({ isDark }) => {
         transition-all
         duration-300
         md:transform-none
-        ${isMobile ? "top-[81%] left-6 " : "top-[90%]  left-0 lg:left-16"}
+        ${isMobile ? "top-[81%] left-6 " : "top-[85%]  left-0 lg:left-16"}
       `}
       >
         <div
