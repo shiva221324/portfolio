@@ -1,186 +1,147 @@
-import React, { useState } from "react";
-import { color, motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { HashLink as Link } from "react-router-hash-link";
+import Resume from "./Resume";
+import Logo from "./Logo";
+import resume from "../assets/shivaresume.pdf";
 
-const Navigation: React.FC = ({ isDark }) => {
-  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-  const [activeNav, setActiveNav] = useState<number | null>(0);
+const Navigation = ({ isDark }) => {
+  const [hoverIndex, setHoverIndex] = useState(null);
+  const [activeNav, setActiveNav] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const handleClick = (navItem: number) => {
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleClick = (navItem) => {
     setActiveNav(navItem);
   };
 
+  const navItems = [
+    { id: 0, label: "Home", link: "#home", reload: true },
+    { id: 1, label: "About", link: "#about" },
+    { id: 4, label: "Experience", link: "#experience" },
+    { id: 2, label: "Skills", link: "#skills" },
+    { id: 3, label: "Work", link: "#projects" },
+    //  / { id: 5, label: "Resume", link: `${resume}` },
+  ];
+
+  const NavItem = ({ item }) => (
+    <div
+      className={`relative flex items-center  justify-center gap-1 transition-all duration-300
+        ${
+          activeNav === item.id
+            ? "font-semibold text-black dark:text-white"
+            : "text-black dark:text-white font-[450]"
+        } sm:${item.id === 6 ? "hidden" : "block"}`}
+      onMouseEnter={() => setHoverIndex(item.id)}
+      onMouseLeave={() => setHoverIndex(null)}
+      onClick={() => handleClick(item.id)}
+    >
+      {activeNav === item.id && (
+        <div className="h-1 w-1 rounded-full bg-cyan-400 shadow-glow" />
+      )}
+      <Link
+        onClick={() => {
+          handleClick(item.id);
+          if (item.reload) {
+            // Move the cursor or focus to the starting position
+            window.scrollTo(0, 0); // Scrolls the page to the top
+          }
+        }}
+        to={item.link}
+        smooth
+        className="whitespace-nowrap"
+      >
+        {item.label}
+      </Link>
+
+      <motion.div
+        initial={{ width: 0 }}
+        animate={hoverIndex === item.id ? { width: "100%" } : { width: 0 }}
+        transition={{
+          duration: 0.4,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-0 left-0 h-0.5 bg-cyan-400 lg:h-[0.20rem]"
+      />
+    </div>
+  );
+
   return (
-    <div className=" ">
-      <div className="opacity-90 dark:text-[#fafafa] fixed top-[83%] left-[1rem] font-[550] lg:left-[3.3rem] lg:top-[78.5%] transform -rotate-90 -translate-x-[50%] text-lg text-black">
-        <div className="flex flex-row-reverse items-center gap-x-12 text-[1.05rem] absolute ">
+    <div className="w-full">
+      <nav
+        className={`
+        fixed
+        z-50
+        transition-all
+        duration-300
+        md:transform-none
+        ${isMobile ? "top-[81%] left-6 " : "top-[90%]  left-0 lg:left-16"}
+      `}
+      >
+        <div
+          className={`
+          relative
+          dark:bg-black/80
+          font-medium
+          text-lg
+          transition-all
+          duration-300
+          ${
+            isMobile
+              ? " px-4 py-3 origin-left transform -rotate-90 "
+              : "py-6 px-4 -rotate-90 transform origin-left"
+          }
+        `}
+        >
           <div
-            className={`flex items-center justify-center gap-1 relative ${
-              activeNav === 0 ? ` font-bold` : "text-black dark:text-white"
-            }`}
-            onMouseEnter={() => setHoverIndex(0)}
-            onMouseLeave={() => setHoverIndex(null)}
-            onClick={() => {
-              handleClick(0);
-            }}
+            className={`
+            flex
+            items-center
+            transition-all
+            duration-300
+            flex-row-reverse
+            ${isMobile ? "gap-8 md:gap-6" : "gap-8 "}
+          `}
           >
-            {activeNav === 0 && (
-              <span
-                style={{ boxShadow: "0 0 0.25em #42fcfc" }}
-                className="inline-block   w-[0.34rem] h-[0.34rem] rounded-full bg-[#42fcfc]"
-              ></span>
-            )}
-            <Link
-              onClick={() => {
-                handleClick(0);
-                window.location.reload();
-              }}
-              to={`#home`}
-              smooth
+            <div
+              className={`
+              inline-block
+             rotate-90
+            `}
             >
-              Home
-            </Link>
+              <Logo />
+            </div>
 
-            <motion.div
-              initial={{ width: 0 }}
-              animate={hoverIndex === 0 ? { width: "100%" } : { width: 0 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-0 h-[0.13rem] lg:h-[0.17rem] bg-[#42fcfc]"
-              style={{ left: 0 }}
-            ></motion.div>
-          </div>
+            {/* <div className=" mt-5"> */}
+            {navItems.map((item) => (
+              <NavItem key={item.id} item={item} />
+            ))}
 
-          <div
-            className={`flex items-center justify-center gap-1 relative ${
-              activeNav === 1 ? " font-bold" : "text-black dark:text-white"
-            }`}
-            onMouseEnter={() => setHoverIndex(1)}
-            onMouseLeave={() => setHoverIndex(null)}
-            onClick={() => {
-              handleClick(1);
-            }}
-          >
-            {activeNav === 1 && (
-              <span
-                style={{ boxShadow: "0 0 0.25em #42fcfc" }}
-                className="inline-block w-[0.34rem] h-[0.34rem] rounded-full bg-[#42fcfc]"
-              ></span>
-            )}
-            <Link onClick={() => handleClick(1)} to={`#about`} smooth>
-              About
-            </Link>
-
-            <motion.div
-              initial={{ width: 0 }}
-              animate={hoverIndex === 1 ? { width: "100%" } : { width: 0 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-0 h-[0.13rem] lg:h-[0.17rem] bg-[#42fcfc]"
-              style={{ left: 0 }}
-            ></motion.div>
-          </div>
-
-          <div
-            className={`flex items-center justify-center gap-1 relative ${
-              activeNav === 4 ? "font-bold" : "text-black dark:text-white"
-            }`}
-            onMouseEnter={() => setHoverIndex(4)}
-            onMouseLeave={() => setHoverIndex(null)}
-            onClick={() => {
-              handleClick(4);
-            }}
-          >
-            {activeNav === 4 && (
-              <span
-                style={{ boxShadow: "0 0 0.25em #42fcfc" }}
-                className="inline-block w-[0.34rem] h-[0.34rem] rounded-full bg-[#42fcfc]"
-              ></span>
-            )}
-            <Link onClick={() => handleClick(4)} to={`#experience`} smooth>
-              Experience
-            </Link>
-
-            <motion.div
-              initial={{ width: 0 }}
-              animate={hoverIndex === 4 ? { width: "100%" } : { width: 0 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-0 h-[0.13rem] lg:h-[0.17rem] bg-[#42fcfc]"
-              style={{ left: 0 }}
-            ></motion.div>
-          </div>
-          <div
-            className={`flex items-center justify-center gap-1 relative ${
-              activeNav === 2 ? "font-bold" : "text-black dark:text-white"
-            }`}
-            onMouseEnter={() => setHoverIndex(2)}
-            onMouseLeave={() => setHoverIndex(null)}
-            onClick={() => {
-              handleClick(2);
-            }}
-          >
-            {activeNav === 2 && (
-              <span
-                style={{ boxShadow: "0 0 0.25em #42fcfc" }}
-                className="inline-block w-[0.34rem] h-[0.34rem] rounded-full bg-[#42fcfc]"
-              ></span>
-            )}
-            <Link onClick={() => handleClick(2)} to={`#skills`} smooth>
-              Skills
-            </Link>
-
-            <motion.div
-              initial={{ width: 0 }}
-              animate={hoverIndex === 2 ? { width: "100%" } : { width: 0 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-0 h-[0.13rem] lg:h-[0.17rem] bg-[#42fcfc]"
-              style={{ left: 0 }}
-            ></motion.div>
-          </div>
-
-          <div
-            className={`flex items-center justify-center gap-1 relative ${
-              activeNav === 3 ? " font-bold" : "text-black dark:text-white"
-            }`}
-            onMouseEnter={() => setHoverIndex(3)}
-            onMouseLeave={() => setHoverIndex(null)}
-            onClick={() => {
-              handleClick(3);
-            }}
-          >
-            {activeNav === 3 && (
-              <span
-                style={{ boxShadow: "0 0 0.25em #42fcfc" }}
-                className="inline-block w-[0.34rem] h-[0.34rem] rounded-full bg-[#42fcfc]"
-              ></span>
-            )}
-            <Link onClick={() => handleClick(3)} to={`#projects`} smooth>
-              Work
-            </Link>
-
-            <motion.div
-              initial={{ width: 0 }}
-              animate={hoverIndex === 3 ? { width: "100%" } : { width: 0 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-0 h-[0.13rem] lg:h-[0.17rem] bg-[#42fcfc]"
-              style={{ left: 0 }}
-            ></motion.div>
+            {/* </div> */}
+            <div
+              className={`
+              md:inline-block
+              sm:hidden 
+              ${isMobile ? "rotate-90" : "rotate-90"}
+            `}
+            >
+              <Resume />
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
   );
 };

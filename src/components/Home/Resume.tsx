@@ -12,7 +12,7 @@ const Resume = (props: Props) => {
         boxShadow:
           "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
       }}
-      className=" hidden md:block cursor-pointer group dark:text-white text-black absolute left-[13rem] top-[64.4rem] md:fixed md:left-2 md:top-[44rem] lg:top-[41rem] w-[7.5rem] h-[2.74rem] md:w-[7rem] md:h-[2.2rem] rounded-lg"
+      className=" hidden md:block cursor-pointer group dark:text-white text-black  w-[7.5rem] h-[2.74rem] md:w-[7rem] md:h-[2.2rem] rounded-lg"
     >
       <a
         href={`${resume}`}

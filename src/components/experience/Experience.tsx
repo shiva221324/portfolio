@@ -1,88 +1,90 @@
 import React, { useState } from "react";
 import { Bug, ChevronDown, ChevronUp, Code, Globe, Shield } from "lucide-react";
 
-export default function Experience() {
+const Experience = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const badges = [
+    { icon: Code, text: "MERN Stack" },
+    { icon: Globe, text: "Web Development" },
+    { icon: Shield, text: "Cybersecurity" },
+    { icon: Bug, text: "Bug Bounties" },
+  ];
+
   return (
-    <section id="experience">
-      <div className="w-[80%] mt-5 dark:text-white mx-auto p-5 max-w-2xl overflow-hidden transition-all duration-300 ease-in-out  relative">
-        <h1 className="dark:text-white text-center text-3xl md:text-5xl opacity-85 mb-10">
+    <section id="experience" className="md:w-full mx-1.5 ml-8  ">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-8 dark:text-white">
           Experience
         </h1>
-        <div
-          style={{
-            boxShadow:
-              " rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
-          }}
-          className=" dark:border-[0.7px] shadow-xl w-full rounded-xl"
-        >
-          {" "}
-          {/* Adjust shadow size here */}
-          <div className="p-6 relative z-10">
-            <div className="flex justify-between items-start">
+
+        <div className="bg-white dark:bg-transparent rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+          <div className="p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
                   Software Developer
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-white dark:text-opacity-80 mt-1">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mt-1">
                   LeanTech Labs
                 </p>
               </div>
-              <span className="text-sm font-medium bg-gray-100 text-gray-700 px-3 py-1 rounded-full">
-                July 2024 - Present
+              <span className=" md:w-[20%] w-[50%] items-center px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                June 2024 - Present
               </span>
             </div>
           </div>
-          <div className="px-6 pb-6 relative z-10">
-            <div className="flex flex-wrap gap-3 mb-4">
-              {[
-                { icon: Code, text: "MERN Stack" },
-                { icon: Globe, text: "Web Development" },
-                { icon: Shield, text: "Cybersecurity" },
-                { icon: Bug, text: "Bug Bounties" },
-              ].map((badge, index) => (
+
+          <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+            <div className="flex flex-wrap gap-2 mb-4">
+              {badges.map((badge, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-1 px-3 py-1 rounded-full border border-gray-200 text-sm text-gray-700 bg-gray-50 hover:bg-gray-100 transition-colors duration-200"
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs sm:text-sm border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
                 >
-                  <badge.icon size={14} />
+                  <badge.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>{badge.text}</span>
                 </div>
               ))}
             </div>
-            <p className="text-gray-600 dark:text-white mb-4">
+
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">
               Involved in building web applications, designing user-friendly
               websites, and analyzing cyber threats to ensure security.
             </p>
+
             {isExpanded && (
-              <div className="mt-4 text-sm dark:text-whitespace-y-2">
-                <p>
-                  • Developed and maintained multiple web applications using
+              <div className="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                <p className="flex items-start">
+                  <span className="mr-2">•</span>
+                  Developed and maintained multiple web applications using
                   modern frameworks
                 </p>
-                <p>
-                  • Collaborated with cross-functional teams to deliver
-                  high-quality website
+                <p className="flex items-start">
+                  <span className="mr-2">•</span>
+                  Collaborated with cross-functional teams to deliver
+                  high-quality websites
                 </p>
-                <p>
-                  • Contributed to cyber analytics projects, enhancing security
+                <p className="flex items-start">
+                  <span className="mr-2">•</span>
+                  Contributed to cyber analytics projects, enhancing security
                   measures
                 </p>
               </div>
             )}
+
             <button
-              className={`mt-4 flex items-center text-black dark:text-white transition-colors duration-200 dark:hover:bg-gray-400 hover:bg-gray-200 rounded-lg px-3 py-2`}
               onClick={() => setIsExpanded(!isExpanded)}
+              className="mt-4 flex items-center text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors duration-200"
             >
               {isExpanded ? (
                 <>
-                  <ChevronUp className="mr-2" size={16} />
+                  <ChevronUp className="w-4 h-4 mr-2" />
                   Show Less
                 </>
               ) : (
                 <>
-                  <ChevronDown className="mr-2" size={16} />
+                  <ChevronDown className="w-4 h-4 mr-2" />
                   Show More
                 </>
               )}
@@ -92,4 +94,6 @@ export default function Experience() {
       </div>
     </section>
   );
-}
+};
+
+export default Experience;

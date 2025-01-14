@@ -1,6 +1,6 @@
 import React from "react";
 import { IoMdReturnRight } from "react-icons/io";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 
 interface ButtonProps {
@@ -8,8 +8,9 @@ interface ButtonProps {
   title: String;
 }
 const Toastmsg = () => {
-  toast("Launching  Soon");
+  toast("🫣 Launching  Soon");
 };
+
 const Button: React.FC<ButtonProps> = ({ hovervalue, title }) => {
   return (
     <div

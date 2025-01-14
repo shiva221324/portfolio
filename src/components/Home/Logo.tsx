@@ -8,12 +8,12 @@ const Logo: React.FC = () => {
   // console.log(setisDarkMode);
   return (
     <div
-      className="fixed left-3 top-10 cursor-pointer md:left-10 md:top-10"
+      className=" cursor-pointer md:left-10 md:top-10"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute w-[2.9rem] h-[2.9rem] md:w-[3.4rem] md:h-[3.4rem] bg-[#c5c5c5] dark:bg-[#111]  rounded-full flex justify-center items-center">
-        <div className="absolute p-2 dark:invert flex justify-center items-center">
+      <div className=" w-[2.9rem] h-[2.9rem] md:w-[3.4rem] md:h-[3.4rem] bg-[#c5c5c5] dark:bg-[#111]  rounded-full flex justify-center items-center">
+        <div className=" p-2 dark:invert flex justify-center items-center">
           <img
             src={img}
             alt="logo"

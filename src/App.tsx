@@ -40,10 +40,9 @@ function App({ setisDark, isDark }) {
     <section id="home">
       <div className={isDark === true ? "dark w-full" : "w-full"}>
         {isDark ? <StarField /> : <p></p>}
-        <Resume />
+        {/* <Resume /> */}
         <Darkmode setisDarkMode={setisDark} />
         <Navigation isDark={isDark} />
-        <Logo />
         <Social />
 
         <Photo isDark={isDark} />

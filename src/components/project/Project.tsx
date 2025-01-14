@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { motion } from "framer-motion";
-// import { toast, ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 
 interface ProjectProps {
   title: string;
@@ -14,10 +12,7 @@ interface ProjectProps {
   techs: string[];
   setFirst: (count: number) => void;
 }
-// const Toastmsg=()
-// {
-//   toast
-// }
+
 const Project: React.FC<ProjectProps> = ({
   title,
   desc,
