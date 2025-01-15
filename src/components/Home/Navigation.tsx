@@ -33,7 +33,6 @@ const Navigation = ({ isDark }) => {
     { id: 4, label: "Experience", link: "#experience" },
     { id: 2, label: "Skills", link: "#skills" },
     { id: 3, label: "Work", link: "#projects" },
-    //  / { id: 5, label: "Resume", link: `${resume}` },
   ];
 
   const NavItem = ({ item }) => (
