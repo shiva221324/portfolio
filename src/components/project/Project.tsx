@@ -29,7 +29,7 @@ const Project: React.FC<ProjectProps> = ({
   return (
     <motion.div
       whileInView={{ opacity: 1, x: 0 }}
-      initial={{ x: 50, opacity: 0 }}
+      initial={{ x: -50, opacity: 0 }}
       transition={{ duration: 1.4 }}
       onMouseEnter={() => {
         mover(count);
@@ -67,12 +67,13 @@ const Project: React.FC<ProjectProps> = ({
             {hover && (
               <div className="flex flex-wrap gap-x-3 gap-y-2">
                 {techs.map((ele, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-2 rounded-lg text-white bg-black dark:text-black dark:bg-zinc-100 font-medium"
-                  >
-                    {ele.charAt(0).toUpperCase() + ele.slice(1).toLowerCase()}
-                  </span>
+                  // <span
+                  //   key={index}
+                  //   className="px-3 py-2 rounded-lg text-white bg-black dark:text-black dark:bg-zinc-100 font-medium"
+                  // >
+                  //   {ele.charAt(0).toUpperCase() + ele.slice(1).toLowerCase()}
+                  // </span>
+                  <img src={ele} alt={ele} key={index} className="w-8 h-8" />
                 ))}
               </div>
             )}

@@ -16,6 +16,8 @@ import Allblogs from "components/blog/Allblogs";
 import Addblog from "components/blog/Addblog";
 import Blog from "components/blog/Blog";
 import Experience from "components/experience/Experience";
+import Skills from "components/skills/Tech2";
+import AchievementsGallery from "components/achivements/Acchivements";
 
 const Projects = React.lazy(() => import("./components/project/Projects"));
 const Projectssmall = React.lazy(
@@ -52,8 +54,9 @@ function App({ setisDark, isDark }) {
           <Experience />
         </section>
         <section id="skills">
-          <Tech />
+          <Skills />
         </section>
+        <AchievementsGallery />
         <Suspense fallback={<div>Loading...</div>}>
           {!isMobile && (
             <section id="projects">

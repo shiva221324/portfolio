@@ -16,8 +16,8 @@ const Photo = ({ isDark }: Props) => {
         transition={{ duration: 1.4, delay: 0.1 }}
       >
         <img
-          className="w-[13rem] opacity-95 h-[13rem] lg:w-[16.6rem] lg:h-[16.6rem] rounded-full object-cover"
-          src={isDark ? img1 : img2}
+          className="w-[13rem] dark:grayscale opacity-95 h-[13rem] lg:w-[16.6rem] lg:h-[16.6rem] rounded-full object-cover"
+          src={img2}
           alt="Shiva"
         />
       </motion.div>

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { HashLink as Link } from "react-router-hash-link";
 import Resume from "./Resume";
 import Logo from "./Logo";
-import resume from "../assets/shivaresume.pdf";
 
 const Navigation = ({ isDark }) => {
   const [hoverIndex, setHoverIndex] = useState(null);
@@ -86,7 +85,7 @@ const Navigation = ({ isDark }) => {
         transition-all
         duration-300
         md:transform-none
-        ${isMobile ? "top-[81%] left-6 " : "top-[85%]  left-0 lg:left-16"}
+        ${isMobile ? "top-[75%] left-6 " : "top-[85%]  left-0 lg:left-16"}
       `}
       >
         <div

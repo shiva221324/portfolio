@@ -14,6 +14,9 @@ import Graphql from "components/svgs/Graphql";
 import Spring from "components/svgs/Spring";
 import { SiSpringboot } from "react-icons/si";
 import Tailwind from "components/svgs/Tailwind";
+import Docker from "components/svgs/Docker";
+import Kubernates from "components/svgs/Kubernates";
+import Redis from "components/svgs/Redis";
 
 const Tech: React.FC = () => {
   return (
@@ -23,7 +26,7 @@ const Tech: React.FC = () => {
     >
       <motion.h1
         whileInView={{ opacity: 1, x: 0 }}
-        initial={{ x: 50, opacity: 0 }}
+        initial={{ x: -50, opacity: 0 }}
         transition={{ duration: 1.4 }}
         className="text-center  text-4xl md:text-5xl "
       >
@@ -31,7 +34,7 @@ const Tech: React.FC = () => {
       </motion.h1>
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
-        initial={{ x: -50, opacity: 0 }}
+        initial={{ x: 50, opacity: 0 }}
         transition={{ duration: 1.4 }}
         className="opacity-65 mt-12  md:mt-16"
       >
@@ -165,6 +168,21 @@ const Tech: React.FC = () => {
             >
               <Nodejssvg />
             </motion.div>
+            <motion.div
+              initial={{ y: -4 }}
+              animate={{
+                y: [-4, 4],
+                transition: {
+                  duration: 3.4,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                },
+              }}
+              className=" w-[3.5rem] h-[3.5rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
+            >
+              <Redis />
+            </motion.div>
           </div>
 
           <div className="w-full flex flex-wrap justify-center gap-4">
@@ -278,6 +296,36 @@ const Tech: React.FC = () => {
               className=" w-[3.5rem] h-[3.5rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
             >
               <SiSpringboot size={45} className=" text-green-600" />
+            </motion.div>
+            <motion.div
+              initial={{ y: -4 }}
+              animate={{
+                y: [-4, 4],
+                transition: {
+                  duration: 3.4,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                },
+              }}
+              className=" w-[2rem] h-[2rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
+            >
+              <Docker />
+            </motion.div>
+            <motion.div
+              initial={{ y: -4 }}
+              animate={{
+                y: [-4, 4],
+                transition: {
+                  duration: 3.4,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                },
+              }}
+              className=" w-[3.5rem] h-[3.5rem] md:w-20 md:h-20 rounded-2xl border-2 border-neutral-800 p-2 flex justify-center items-center"
+            >
+              <Kubernates />
             </motion.div>
           </div>
         </div>

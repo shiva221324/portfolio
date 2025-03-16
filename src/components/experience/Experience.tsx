@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Bug, ChevronDown, ChevronUp, Code, Globe, Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -14,11 +15,21 @@ const Experience = () => {
   return (
     <section id="experience" className="md:w-full mx-1.5 ml-8  ">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-8 dark:text-white">
+        <motion.p
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: 50, opacity: 0 }}
+          transition={{ duration: 1.4 }}
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center  mb-8 dark:text-white"
+        >
           Experience
-        </h1>
+        </motion.p>
 
-        <div className="bg-white dark:bg-transparent rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+        <motion.div
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -50, opacity: 0 }}
+          transition={{ duration: 1.4 }}
+          className="bg-white dark:bg-transparent rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+        >
           <div className="p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
               <div>
@@ -29,7 +40,7 @@ const Experience = () => {
                   LeanTech Labs
                 </p>
               </div>
-              <span className=" md:w-[20%] w-[50%] items-center px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+              <span className=" md:w-[20%] w-[50%] items-center px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium bg-gray-100 dark:bg-transparent border dark:border-gray-700 text-gray-700 dark:text-gray-300">
                 June 2024 - Present
               </span>
             </div>
@@ -40,7 +51,7 @@ const Experience = () => {
               {badges.map((badge, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs sm:text-sm border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs sm:text-sm border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-white bg-gray-50 dark:bg-transparent hover:bg-gray-100 dark:hover:bg-transparent transition-colors duration-200"
                 >
                   <badge.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>{badge.text}</span>
@@ -75,7 +86,7 @@ const Experience = () => {
 
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="mt-4 flex items-center text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors duration-200"
+              className="mt-4 flex items-center text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-300 dark:hover:text-black dark:bg-opacity-30 rounded-lg px-3 py-2 transition-colors duration-200"
             >
               {isExpanded ? (
                 <>
@@ -90,7 +101,7 @@ const Experience = () => {
               )}
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

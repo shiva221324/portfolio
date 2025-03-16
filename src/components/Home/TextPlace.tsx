@@ -43,7 +43,7 @@ const TextPlace: React.FC = () => {
       <span className="text-xl  md:text-2xl dark:opacity-70">
         Hey there! I'm
       </span>
-      <div className="text-xl">
+      <div className="text-xl flex ">
         <TextDecrypt text="SHIVA VENKAT KUMAR" />
       </div>
       <span className=" text-xl md:text-2xl inline-block opacity-80">
@@ -51,13 +51,13 @@ const TextPlace: React.FC = () => {
       </span>
       <div className="relative tracking-wide opacity-90 dark:opacity-80">
         <motion.div
-          key={isFullStack ? "MERN STACK" : "JAVA STACK"}
+          key={isFullStack ? "FULL STACK" : "JAVA STACK"}
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1] }}
           transition={{ duration: 0.8, delay: 11 * 0.1 }} // Delay to match the appearance of the full word
           className="text-[2.6rem] md:text-6xl lg:text-8xl inline-block opacity-90 dark:opacity-85 "
         >
-          {splitTextWithSpace(isFullStack ? "MERN STACK" : "BUG BOUNTY")}
+          {splitTextWithSpace(isFullStack ? "FULL STACK" : "BUG BOUNTY")}
         </motion.div>
         <motion.div
           key={isFullStack ? "FULL STACK-box" : "MOBILE APP-box"}

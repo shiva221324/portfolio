@@ -29,8 +29,8 @@ const About = ({ isDark }: Props) => {
         >
           <div className="hidden lg:block mt-3 md:w-[20%]">
             <img
-              className="text-white rounded-xl h-[20rem] w-[24rem] md:h-[23rem] md:w-[37.5rem] md:object-cover"
-              src={isDark ? image2 : image1}
+              className="text-white dark:grayscale rounded-xl h-[20rem] w-[24rem] md:h-[23rem] md:w-[37.5rem] md:object-cover"
+              src={image1}
               alt="about"
             />
           </div>
